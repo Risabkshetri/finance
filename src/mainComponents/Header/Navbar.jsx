@@ -1,29 +1,10 @@
-// import { Logo } from './index'
-// import { Link } from 'react-router-dom'
-
-// function Navbar({Navlist = ['Home', 'About', 'Blog', 'Contact']}) {
-//   return (
-//     <div className='flex flex-row gap-10 items-center justify-between px-4  bg-white w-full h-12  shadow-lg'>
-//         <div>
-//             <Logo/>
-//         </div>
-//         <div className='flex gap-10'>
-//         {Navlist.map((item) => (
-//                 <Link key={item} to='/' className='rounded-xl py-1 px-4 hover:bg-slate-300'>{item}</Link>
-//             ))}
-//         </div>
-//     </div>
-//   )
-// }
-
-// export default Navbar
-
-import { useState } from 'react'
-import { Logo } from '../index'
-import { Link } from 'react-router-dom'
+import { useState } from 'react';
+import { Logo } from '../index';
+import { Link } from 'react-router-dom';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 function Navbar({ Navlist = ['Home', 'About', 'Blog', 'Contact'], className = '' }) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <nav className={`bg-white shadow-lg ${className}`}>
@@ -37,7 +18,7 @@ function Navbar({ Navlist = ['Home', 'About', 'Blog', 'Contact'], className = ''
               <Link
                 key={item}
                 to="/"
-                className="text-gray-900 hover:bg-gray-50 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
+                className="text-gray-900 hover:bg-gray-50  hover:text-gray-900 px-3 py-2 rounded-md text-lg font-medium"
               >
                 {item}
               </Link>
@@ -49,41 +30,14 @@ function Navbar({ Navlist = ['Home', 'About', 'Blog', 'Contact'], className = ''
               type="button"
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
               aria-controls="mobile-menu"
-              aria-expanded="false"
+              aria-expanded={isMenuOpen}
             >
               <span className="sr-only">Open main menu</span>
-              {/* Icon when menu is closed. */}
-              <svg
-                className={`${isMenuOpen ? 'hidden' : 'block'} h-6 w-6`}
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-              {/* Icon when menu is open. */}
-              <svg
-                className={`${isMenuOpen ? 'block' : 'hidden'} h-6 w-6`}
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              {isMenuOpen ? (
+                <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+              )}
             </button>
           </div>
         </div>
@@ -104,7 +58,7 @@ function Navbar({ Navlist = ['Home', 'About', 'Blog', 'Contact'], className = ''
         </div>
       </div>
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

@@ -4,6 +4,7 @@ import Navbar from "./Header/Navbar";
 import Button from "./Button";
 import Blog from "./Blog/Blog";
 import Footer from "./Footer/Footer";
+import HomePage from "./Home/HomePage";
 
 export {
     Logo,
@@ -12,4 +13,5 @@ export {
     Button,
     Blog,
     Footer,
+    HomePage,
 }

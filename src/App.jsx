@@ -1,13 +1,13 @@
 
-import Crypto from "./cryptoCurrency/Crypto"
-import CoinContextProvider from './cryptoCurrency/context/CryptoContext'
+// import Crypto from "./cryptoCurrency/Crypto"
+import { Footer, HomePage, Navbar } from "./mainComponents"
 function App() {
 
   return (
     <>
-    <CoinContextProvider>
-     <Crypto />
-     </CoinContextProvider>
+    <Navbar className="sticky top-0"/>
+    <HomePage />
+    <Footer className=""/>
     </>
   )
 }
