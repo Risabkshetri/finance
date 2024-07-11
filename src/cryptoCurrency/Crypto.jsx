@@ -1,14 +1,15 @@
-import { Navbar } from '../mainComponents/index'
-import SearchBar from './components/SearchBar'
+import { Footer, Navbar } from '../mainComponents/index'
 import CryptoData from './components/CryptoData'
 
 
 function Crypto() {
   return (
     <>
-    <Navbar Navlist={['Home', 'Blog', 'Contact']}/>
-    <SearchBar />
+    <Navbar Navlist={['Home', 'Blog', 'Contact']}
+    className='sticky top-0'
+    />
     <CryptoData />
+    <Footer />
     </>
   )
 }
