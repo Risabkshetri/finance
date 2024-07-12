@@ -1,9 +1,28 @@
 import { useState, useEffect } from 'react'
 import Introduction from './Introduction'
 import productivity from '../../assets/Productivity.png'
+import { Footer,  Navbar, Button } from "../index";
 
 function HomePage() {
   const [isMobile, setIsMobile] = useState(false)
+
+  const  expraComponents = () => {
+    return (
+      <div className='flex gap-2'>
+  <Button 
+    className='text-white bg-red-500 hover:bg-red-600 transition-colors duration-300 ease-in-out transform hover:scale-105'
+  >
+    Signup
+  </Button>
+  <Button 
+    className='text-white bg-yellow-600 hover:bg-yellow-700 transition-colors duration-300 ease-in-out transform hover:scale-105'
+  >
+    Login
+  </Button>
+</div>
+  );
+    
+  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -19,6 +38,11 @@ function HomePage() {
   }, [])
 
   return (
+    <>
+    <Navbar 
+    className="sticky top-0"
+    expraComponents={expraComponents}
+    />
     <div className="min-h-screen bg-white py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
@@ -36,6 +60,8 @@ function HomePage() {
         </div>
       </div>
     </div>
+    <Footer className=""/>
+    </>
   )
 }
 

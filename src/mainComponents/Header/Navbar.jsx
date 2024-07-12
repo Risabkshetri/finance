@@ -3,7 +3,11 @@ import { Logo } from '../index';
 import { Link } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
-function Navbar({ Navlist = ['Home', 'About', 'Blog', 'Contact'], className = '' }) {
+function Navbar({ 
+  Navlist = ['Home', 'About', 'Blog', 'Contact', ], 
+  className = '', 
+  expraComponents,
+}) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -23,7 +27,10 @@ function Navbar({ Navlist = ['Home', 'About', 'Blog', 'Contact'], className = ''
                 {item}
               </Link>
             ))}
+            {expraComponents && expraComponents()}
+
           </div>
+          
           <div className="-mr-2 flex items-center sm:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -55,6 +62,7 @@ function Navbar({ Navlist = ['Home', 'About', 'Blog', 'Contact'], className = ''
               {item}
             </Link>
           ))}
+          {expraComponents && expraComponents()}
         </div>
       </div>
     </nav>

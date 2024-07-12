@@ -13,11 +13,11 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "./HomePage",
+        index: true,
         element: <HomePage />
       },
       {
-        path: "./Crypto",
+        path: "Crypto",
         element: <Crypto />
       },
     ]
