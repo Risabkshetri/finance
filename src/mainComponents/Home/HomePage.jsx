@@ -2,17 +2,19 @@ import { useState, useEffect } from 'react'
 import Introduction from './Introduction'
 import productivity from '../../assets/Productivity.png'
 import { Footer,  Navbar, Button } from "../index";
+import { Link} from 'react-router-dom'
+
 
 function HomePage() {
   const [isMobile, setIsMobile] = useState(false)
 
-  const  expraComponents = () => {
+  const  extraComponents = () => {
     return (
       <div className='flex gap-2'>
   <Button 
     className='text-white bg-red-500 hover:bg-red-600 transition-colors duration-300 ease-in-out transform hover:scale-105'
   >
-    Signup
+    <Link to = '/signup'>Signup</Link>
   </Button>
   <Button 
     className='text-white bg-yellow-600 hover:bg-yellow-700 transition-colors duration-300 ease-in-out transform hover:scale-105'
@@ -41,8 +43,9 @@ function HomePage() {
     <>
     <Navbar 
     className="sticky top-0"
-    expraComponents={expraComponents}
+    extraComponents={extraComponents}
     />
+    
     <div className="min-h-screen bg-white py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">

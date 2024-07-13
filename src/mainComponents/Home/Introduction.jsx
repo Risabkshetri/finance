@@ -19,6 +19,7 @@ export default function Introduction() {
           </Button>
         </div>
       </div>
+      <Link to='/Dashboard' className="bg-red-600 py-2 px-4 rounded-lg">Dashboard</Link>
       <Link to='/Crypto' className="bg-red-600 py-2 px-4 rounded-lg">Crypto</Link>
       </>
     )
