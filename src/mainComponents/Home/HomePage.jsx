@@ -19,7 +19,7 @@ function HomePage() {
   <Button 
     className='text-white bg-yellow-600 hover:bg-yellow-700 transition-colors duration-300 ease-in-out transform hover:scale-105'
   >
-    Login
+    <Link to = '/login'>Login</Link>
   </Button>
 </div>
   );

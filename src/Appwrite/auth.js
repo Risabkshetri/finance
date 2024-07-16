@@ -29,34 +29,42 @@ export class AuthService {
         }
     }
 
+    // async login({email, password}) {
+    //     try {
+    //         return await this.account.createEmailPasswordSession(email, password);
+    //     } catch (error) {
+    //       console.log("AppwriteService :: login :: error", error);
+    //     }
+    // }
     async login({email, password}) {
         try {
-            return await this.account.createEmailPasswordSession(email, password);
+            const session = await this.account.createEmailPasswordSession(email, password);
+            return session;
         } catch (error) {
-          console.log("AppwriteService :: login :: error", error);
+            console.log("AppwriteService :: login :: error", error);
+            throw error;
         }
     }
 
-    // async getCurrentUser() {
+    async getCurrentUser() {
+        try {
+            return await this.account.get();
+        } catch (error) {
+            console.log("AppwriteService :: getCurrentUser :: error", error);
+            return null;
+        }
+    }
+ //   async getCurrentUser() {
     //     try {
-    //         return await this.account.get();
+    //         const session = await this.account.getSession('current');
+    //         if (session) {
+    //             return await this.account.get();
+    //         }
     //     } catch (error) {
     //         console.log("AppwriteService :: getCurrentUser :: error", error);
     //     }
-
     //     return null;
     // }
-    async getCurrentUser() {
-        try {
-            const session = await this.account.getSession('current');
-            if (session) {
-                return await this.account.get();
-            }
-        } catch (error) {
-            console.log("AppwriteService :: getCurrentUser :: error", error);
-        }
-        return null;
-    }
     
 
     async logout() {

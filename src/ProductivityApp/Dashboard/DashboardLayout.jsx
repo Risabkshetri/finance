@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
-import DashboardContent from "./DashboardContent";
+// import DashboardContent from "./DashboardContent";
 import { Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
@@ -13,14 +13,14 @@ const DashboardLayout = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100 overflow-hidden">
+    <div className="flex h-auto bg-white overflow-hidden">
       <Sidebar sidebarOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header toggleSidebar={toggleSidebar} />
-        <main>
+        <main className="mt-4 px-4">
             <Outlet />
         </main>
-        <DashboardContent />
+       
       </div>
     </div>
   );

@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './Store/Store.js'
-import ProtectedRoute from './mainComponents/ProtectedRoute.jsx'
+// import ProtectedRoute from './mainComponents/ProtectedRoute.jsx'
 import App from './App.jsx'
 import './index.css'
 
 // Import components
 import { HomePage, AboutUs, Blog, Contact, Login, Signup } from './mainComponents/index.js'
-import { Dashboard,CryptoCurrency,Chatbot,Profile,Progress,Social,Note,FinancialCalculation,FinanceHub} from './ProductivityApp/index.js'
+import { Dashboard,CryptoCurrency,Chatbot,Profile,Progress,Social,Note,FinancialCalculation,FinanceHub, DashboardContent, Logout} from './ProductivityApp/index.js'
 
 const router = createBrowserRouter([
   {
@@ -42,14 +42,14 @@ const router = createBrowserRouter([
       },
       {
         path: "dashboard",
-        element://( 
-        // <ProtectedRoute>
-        //   <Dashboard />
-        // </ProtectedRoute>)
-        <Dashboard />,
+        element: <Dashboard />,
         children: [
           {
             index: true,
+            element: <DashboardContent />
+          },
+          {
+            path: "progress",
             element: <Progress />
           },
           {
@@ -57,17 +57,21 @@ const router = createBrowserRouter([
             element: <Social />
           },
           {
-            path: "FinanceHub",
+            path: "finance",
             element: <FinanceHub />,
             children: [
               {
                 index: true,
-                element: <FinancialCalculation />
+                element: <CryptoCurrency />
               },
               {
-                path: "cryptoCurrency",
+                path: "cryptocurrency",
                 element: <CryptoCurrency />
-              }
+              },
+              {
+                path: "financial-calculation",
+                element: <FinancialCalculation />
+              },
             ]
           },
           {
@@ -75,18 +79,22 @@ const router = createBrowserRouter([
             element: <Note />
           },
           {
-            path: "Chatbot",
+            path: "chatbot",
             element: <Chatbot />
           },
           {
             path: "profile",
             element: <Profile />
+          },
+          {
+            path: "logout",
+            element: <Logout />
           }
         ]
       }
     ]
   }
-])
+]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

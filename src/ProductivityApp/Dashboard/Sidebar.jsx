@@ -1,5 +1,6 @@
 // Sidebar.jsx
 import { Link, NavLink } from "react-router-dom";
+import Logout from "../Logout";
 import {
   FaHome,
   FaChartLine,
@@ -21,10 +22,10 @@ const navItems = [
   { name: "AI Assistant", url: "/dashboard/chatbot", icon: FaRobot },
 ];
 
-const accountItems = [
-  { name: "Profile", url: "/dashboard/profile", icon: FaUser },
-  { name: "Logout", url: "/logout", icon: FaSignOutAlt },
-];
+// const accountItems = [
+//   { name: "Profile", url: "/dashboard/profile", icon: FaUser },
+//   { name: "Logout", url: "/LogoutBtn", icon: FaSignOutAlt },
+// ];
 
 const NavItem = ({ name, url, icon: Icon }) => (
   <NavLink
@@ -45,7 +46,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
     <aside
       className={`${
         sidebarOpen ? "translate-x-0" : "-translate-x-full"
-      } fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-md transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0`}
+      } fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-xl shadow-black transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0`}
     >
       <div className="p-4 flex justify-between items-center shadow-inner">
         <h1 className="text-2xl font-bold text-indigo-600">KshetriAI</h1>
@@ -69,12 +70,15 @@ const Sidebar = ({ sidebarOpen, toggleSidebar }) => {
           <span className="px-4 py-2 text-sm font-semibold text-gray-600 uppercase">
             Account
           </span>
-          {accountItems.map((item) => (
+          {/* {accountItems.map((item) => (
             <NavItem key={item.name} {...item} />
-          ))}
+          ))} */}
+          <Link to='/profile'> <FaUser />profile</Link>
+          <FaSignOutAlt/><Logout />
         </div>
       </nav>
     </aside>
+  
   );
 };
 

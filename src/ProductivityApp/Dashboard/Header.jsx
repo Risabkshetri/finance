@@ -3,7 +3,7 @@ import { FaBars, FaSearch, FaCog, FaBell } from "react-icons/fa";
 
 const Header = ({ toggleSidebar }) => {
   return (
-    <header className="bg-white shadow-sm">
+    <header className="bg-white shadow-md shadow-slate-300 sticky top-0">
       <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center shadow-inner">
         <div className="flex items-center">
           <button
