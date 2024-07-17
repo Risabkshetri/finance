@@ -1,8 +1,10 @@
+import { Container } from "../index";
+
 // MainSections.jsx
 const MainSections = () => {
     return (
       <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2">
-        <div className="bg-white overflow-hidden shadow rounded-lg">
+        <Container>
           <div className="px-4 py-5 sm:p-6">
             <h3 className="text-lg font-medium text-gray-900">
               Your Productivity Journey
@@ -15,9 +17,9 @@ const MainSections = () => {
               View Detailed Progress
             </button>
           </div>
-        </div>
+        </Container>
   
-        <div className="bg-white overflow-hidden shadow rounded-lg">
+        <Container>
           <div className="px-4 py-5 sm:p-6">
             <h3 className="text-lg font-medium text-gray-900">
               Social Media Snapshot
@@ -30,7 +32,7 @@ const MainSections = () => {
               Manage Accounts
             </button>
           </div>
-        </div>
+        </Container>
       </div>
     );
   };

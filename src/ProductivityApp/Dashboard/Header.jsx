@@ -1,9 +1,9 @@
 // Header.jsx
 import { FaBars, FaSearch, FaCog, FaBell } from "react-icons/fa";
 
-const Header = ({ toggleSidebar }) => {
+const Header = ({ toggleSidebar, className = '' }) => {
   return (
-    <header className="bg-white shadow-md shadow-slate-300 sticky top-0">
+    <header className={`bg-white shadow-md shadow-slate-300 ${className}`}>
       <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center shadow-inner">
         <div className="flex items-center">
           <button

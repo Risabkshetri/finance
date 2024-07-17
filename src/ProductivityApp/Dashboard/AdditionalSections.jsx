@@ -1,8 +1,10 @@
+import { Container } from "../index";
+
 // AdditionalSections.jsx
 const AdditionalSections = () => {
     return (
       <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-3">
-        <div className="bg-white overflow-hidden shadow rounded-lg">
+        <Container>
           <div className="px-4 py-5 sm:p-6">
             <h3 className="text-lg font-medium text-gray-900">Financial Health</h3>
             <p className="mt-1 text-sm text-gray-500">
@@ -10,9 +12,9 @@ const AdditionalSections = () => {
             </p>
             <div className="mt-4 h-24 bg-gray-200 rounded"></div>
           </div>
-        </div>
+        </Container>
   
-        <div className="bg-white overflow-hidden shadow rounded-lg">
+        <Container>
           <div className="px-4 py-5 sm:p-6">
             <h3 className="text-lg font-medium text-gray-900">Recent Notes</h3>
             <div className="mt-4 space-y-2">
@@ -26,9 +28,9 @@ const AdditionalSections = () => {
               Create New Note
             </button>
           </div>
-        </div>
+        </Container>
   
-        <div className="bg-white overflow-hidden shadow rounded-lg">
+        <Container>
           <div className="px-4 py-5 sm:p-6">
             <h3 className="text-lg font-medium text-gray-900">AI Assistant</h3>
             <p className="mt-1 text-sm text-gray-500">
@@ -46,7 +48,7 @@ const AdditionalSections = () => {
               </ul>
             </div>
           </div>
-        </div>
+        </Container>
       </div>
     );
   };

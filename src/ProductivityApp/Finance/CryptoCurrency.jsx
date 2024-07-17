@@ -1,7 +1,7 @@
 import React from 'react'
 import Crypto from '../../cryptoCurrency/Crypto.jsx'
 
-function cryptoCurrency() {
+function CryptoCurrency() {
   return (
     <div>
         <Crypto />
@@ -9,4 +9,4 @@ function cryptoCurrency() {
   )
 }
 
-export default cryptoCurrency
+export default CryptoCurrency

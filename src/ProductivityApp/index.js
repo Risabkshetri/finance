@@ -9,6 +9,8 @@ import Logout from "./Logout";
 import FinancialCalculation from "./Finance/Calculation/FinancialCalculation";
 import FinanceHub from "./Finance/FinanceHub";
 import DashboardContent from "./Dashboard/DashboardContent";
+import Container from "./Container";
+import FinanceHome from "./Finance/FinanceHome";
 
 export { 
     Dashboard,
@@ -22,5 +24,7 @@ export {
     FinancialCalculation,
     FinanceHub,
     DashboardContent,
+    Container,
+    FinanceHome
 
  }

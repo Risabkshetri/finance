@@ -9,7 +9,7 @@ import './index.css'
 
 // Import components
 import { HomePage, AboutUs, Blog, Contact, Login, Signup } from './mainComponents/index.js'
-import { Dashboard,CryptoCurrency,Chatbot,Profile,Progress,Social,Note,FinancialCalculation,FinanceHub, DashboardContent, Logout} from './ProductivityApp/index.js'
+import { Dashboard,CryptoCurrency,Chatbot,Profile,Progress,Social,Note,FinancialCalculation, FinanceHome, FinanceHub, DashboardContent, Logout} from './ProductivityApp/index.js'
 
 const router = createBrowserRouter([
   {
@@ -53,16 +53,16 @@ const router = createBrowserRouter([
             element: <Progress />
           },
           {
-            path: "social-media",
-            element: <Social />
+            path: "social",
+            element: <Social />,
           },
           {
             path: "finance",
-            element: <FinanceHub />,
+            element: <FinanceHome />,
             children: [
               {
                 index: true,
-                element: <CryptoCurrency />
+                element: <FinanceHub />,
               },
               {
                 path: "cryptocurrency",
@@ -84,7 +84,7 @@ const router = createBrowserRouter([
           },
           {
             path: "profile",
-            element: <Profile />
+            element: <Profile/>
           },
           {
             path: "logout",

@@ -1,8 +1,9 @@
-import React from 'react'
+import NoteProvider from "../../NoteTakingApp/NoteProvider";
 
-function Note() {
+
+const Note = () => {
   return (
-    <div>Note</div>
+    <NoteProvider />
   )
 }
 
