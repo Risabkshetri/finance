@@ -1,13 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaUser, FaEnvelope, FaPhone, FaTrash } from "react-icons/fa";
+import { useState } from "react";
+import authService from "../../Appwrite/auth";
 
 const User = ({
   profilePicture,
   handleFileChange,
   handleRemoveProfilePicture,
 }) => {
+  const [error, setErrror] = useState(null);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  useEffect(() => {
+    
+  }, []);
+const data = async () => {
+  try {
+    const currentUser = await authService.getCurrentUser();
+    if (currentUser) {
+      console.log(currentUser.name)
+      setName(currentUser.name);
+      setEmail(currentUser.email);
+    }
+  } catch (error) {
+    setErrror(error.message);
+  }
+}
+
+useEffect (() => {
+  data();
+}, []);
+
+
   return (
+    
     <div className="bg-white shadow-md rounded-lg p-6 mb-8">
+      {error && <p className="text-red-600">{error}</p>}
       <h2 className="text-2xl font-semibold mb-6">Basic Information</h2>
 
       <div className="flex flex-col md:flex-row items-center mb-6">
@@ -52,69 +80,14 @@ const User = ({
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Full Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            className="w-full px-3 py-2 border rounded-md"
-            placeholder="John Doe"
-          />
-        </div>
-        <div>
-          <label
-            htmlFor="username"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Username
-          </label>
-          <input
-            type="text"
-            id="username"
-            className="w-full px-3 py-2 border rounded-md"
-            placeholder="johndoe123"
-          />
-        </div>
-        <div>
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Email Address
-          </label>
-          <div className="flex items-center">
-            <FaEnvelope className="text-gray-400 mr-2" />
-            <input
-              type="email"
-              id="email"
-              className="w-full px-3 py-2 border rounded-md"
-              placeholder="john@example.com"
-            />
+          <p>Name: <span>{name}</span> </p>
+          <p>Username: <span>{name + '119'}</span></p>
+          <p>Email: <span>{email}</span></p>
+          
           </div>
         </div>
-        <div>
-          <label
-            htmlFor="phone"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Phone Number (Optional)
-          </label>
-          <div className="flex items-center">
-            <FaPhone className="text-gray-400 mr-2" />
-            <input
-              type="tel"
-              id="phone"
-              className="w-full px-3 py-2 border rounded-md"
-              placeholder="+1 (123) 456-7890"
-            />
-          </div>
+      
         </div>
-      </div>
-    </div>
   );
 };
 

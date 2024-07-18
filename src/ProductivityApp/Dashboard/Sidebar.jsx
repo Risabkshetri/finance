@@ -71,7 +71,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar, className = '' }) => {
             Account
           </span>
           {accountItems.map((item) => (
-            <NavItem key={item.name} {...item} />
+            <NavItem onClick={toggleSidebar} key={item.name} {...item} />
           ))}
           
         </div>
