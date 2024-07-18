@@ -1,9 +1,15 @@
-import React from 'react'
+// YourComponent.jsx
+import React from 'react';
+import  ChatbotProvider  from '../../Chatbot/ChatbotProvider';
 
-function Chatbot() {
+
+const YourComponent = () => {
   return (
-    <div>Chatbot</div>
-  )
-}
+   
+        
+        <ChatbotProvider />
+      
+  );
+};
 
-export default Chatbot
+export default YourComponent;

@@ -5,6 +5,8 @@ const conf = {
     appwriteCollectionId: String(import.meta.env.VITE_APPWRITE_COLLECTION_ID),
     appwriteCotactCollectionId: String(import.meta.env.VITE_APPWRITE_Contact_Collection_ID),
     appwriteBucketId: String(import.meta.env.VITE_APPWRITE_BUCKET_ID),
+    geminiApiEndPoint: String(import.meta.env.VITE_GEMINI_API_END_POINT),
+    geminiApiKey: String(import.meta.env.VITE_GEMINI_API_KEY)
     
 };
 

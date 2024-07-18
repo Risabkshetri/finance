@@ -26,9 +26,10 @@ const accountItems = [
   { name: "Logout", url: "/dashboard/logout", icon: FaSignOutAlt },
 ];
 
-const NavItem = ({ name, url, icon: Icon }) => (
+const NavItem = ({ name, url, onClick, icon: Icon }) => (
   <NavLink
     to={url}
+    onClick={onClick}
     className={({ isActive }) =>
       `flex items-center px-4 py-2 text-gray-700 ${
         isActive ? "bg-indigo-100 text-indigo-600" : "hover:bg-gray-100"
@@ -62,7 +63,7 @@ const Sidebar = ({ sidebarOpen, toggleSidebar, className = '' }) => {
             Dashboard
           </span>
           {navItems.map((item) => (
-            <NavItem key={item.name} {...item} />
+            <NavItem onClick={toggleSidebar} key={item.name} {...item} />
           ))}
         </div>
         <div className="mt-6">
