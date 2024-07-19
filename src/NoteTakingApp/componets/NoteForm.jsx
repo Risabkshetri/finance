@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { addNote, updateNote } from '../Store/noteSlice';
+import { addNote, updateNote } from '../../Store/noteSlice';
 
 const NoteForm = ({ note, onSave }) => {
   const [title, setTitle] = useState('');

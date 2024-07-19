@@ -1,17 +1,21 @@
 import { useSelector } from "react-redux";
 import { Container } from "../index";
 
+
 // QuickStats.jsx
 const QuickStats = () => {
   const notes = useSelector((state) => state.notes);
   const notesCopy = Array.isArray(notes) ? [...notes] : [];
   const length = notesCopy.length;
-  console.log(length)
+
+ const netWorth = useSelector((state) => state.income.netWorth);
+ console.log(netWorth)
+
 
     const stats = [
       {name: "Daily Progress", value: 0},
       {name: "Social Engagement", value: 0},
-      {name: "Financial Overview", value: 0},
+      {name: "Financial Overview", value: netWorth},
       {name: "Notes Created", value: length},
     ];
 

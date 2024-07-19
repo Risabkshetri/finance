@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 const AdditionalSections = () => {
   const navigate = useNavigate();
   const notes = useSelector((state) => state.notes);
+  console.log(notes)
   const recentNotes = Array.isArray(notes) ? [...notes].reverse().slice(0, 3) : [];
 
   const handlechatbotClick = () => {

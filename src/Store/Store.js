@@ -1,10 +1,13 @@
 import {configureStore} from '@reduxjs/toolkit';
 import authSlice from './authSlice';
+import noteSlice from './noteSlice';
+import incomeSlice from './incomeSlice';
 
 const store = configureStore({
     reducer: {
         auth : authSlice,
-        //TODO: add more slices here for posts
+        notes: noteSlice,
+        income: incomeSlice
     }
 });
 

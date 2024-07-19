@@ -20,7 +20,7 @@ const NoteApp = () => {
   }, [notes])
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-8">Take Yor Note</h1>
+      <h1 className="text-3xl font-bold mb-8">Take Your Note</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className='p-4 bg-pink-100'>
           <h2 className="text-2xl font-semibold mb-4 p-2 bg-blue-200">Add/Edit Note</h2>
