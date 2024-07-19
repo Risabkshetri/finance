@@ -5,6 +5,7 @@ import SearchBar from "./SearchBar";
 
 
 
+
 function CryptoData() {
   const { setCurrency, currency, allcoin, displaycoin, setDisplaycoin } =
     useContext(coinContext);
@@ -37,6 +38,11 @@ function CryptoData() {
 
   if (!displaycoin) {
     return <div>Loading...</div>;
+  }
+ 
+  const handleclick = (url) => {
+    console.log(url)
+    window.location.href = url
   }
 
   return (
@@ -78,6 +84,7 @@ function CryptoData() {
             {displaycoin.map((item, index) => (
               <tr
                 key={item.id || index}
+                onClick={() => handleclick(`https://coinmarketcap.com/currencies/${item.name}/`)}
                 className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
               >
                 <td className="px-6 py-4">{item.market_cap_rank}</td>
@@ -109,6 +116,7 @@ function CryptoData() {
                   {currency.Symbol} {item.market_cap.toLocaleString()}
                 </td>
               </tr>
+             
             ))}
           </tbody>
         </table>
