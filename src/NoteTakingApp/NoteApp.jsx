@@ -31,7 +31,7 @@ const NoteApp = () => {
         </div>
         <div className="p-4 bg-slate-200">
           <h2 className="text-2xl font-semibold mb-4 bg-red-200 p-2">Your Notes</h2>
-          {notes.map(note => (
+          {[...notes].reverse().map(note => (
             <NoteItem 
               key={note.id} 
               note={note} 
