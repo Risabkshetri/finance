@@ -8,7 +8,7 @@ import App from './App.jsx'
 import './index.css'
 
 // Import components
-import { HomePage, AboutUs, Blog, Contact, Login, Signup } from './mainComponents/index.js'
+import { HomePage, AboutUs, Blog, Contact, LoginLayout, SignupLayout } from './mainComponents/index.js'
 import { Dashboard,CryptoCurrency,Chatbot,Profile,Progress,Social,Note,FinancialCalculation, FinanceHome, FinanceHub, DashboardContent, Logout} from './ProductivityApp/index.js'
 
 const router = createBrowserRouter([
@@ -34,11 +34,15 @@ const router = createBrowserRouter([
       },
       {
         path: "login",
-        element: <Login />
+        element: <LoginLayout />
       },
       {
         path: "signup",
-        element: <Signup />
+        element: <SignupLayout />
+      },
+      {
+        path: "logout",
+        element: <Logout />
       },
       {
         path: "dashboard",
@@ -86,10 +90,6 @@ const router = createBrowserRouter([
             path: "profile",
             element: <Profile/>
           },
-          {
-            path: "logout",
-            element: <Logout />
-          }
         ]
       }
     ]

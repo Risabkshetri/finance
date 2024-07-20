@@ -80,9 +80,9 @@ useEffect (() => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <p>Name: <span>{name}</span> </p>
-          <p>Username: <span>{name + '119'}</span></p>
-          <p>Email: <span>{email}</span></p>
+          <p className="text-lg font-medium mb-2">Name: <span>{name}</span> </p>
+          <p className="text-lg font-medium mb-2">Username: <span>{name.replace(/\s/g, '') + Math.floor(Math.random() * 1000)}</span></p>
+          <p className="text-lg font-medium mb-2">Email: <span>{email}</span></p>
           
           </div>
         </div>

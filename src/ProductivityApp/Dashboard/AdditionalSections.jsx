@@ -16,6 +16,13 @@ const AdditionalSections = () => {
     navigate("/dashboard/notes");
   }
 
+  const handleIncomeClick = () => {
+    navigate("/dashboard/finance/financial-calculation");
+  }
+
+  const { networth, debit, credit } = useSelector((state) => state.finance);
+
+
   return (
     <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-3">
       <Container>
@@ -24,7 +31,17 @@ const AdditionalSections = () => {
           <p className="mt-1 text-sm text-gray-500">
             Current month's budget overview
           </p>
-          <div className="mt-4 h-24 bg-gray-200 rounded"></div>
+          <div className="mt-4 h-24 p-2 bg-gray-100 rounded">
+             <p>Debit: <span className="text-red-500">₹{debit.toFixed(2)}</span></p>
+             <p>Credit: <span className="text-green-500"> ₹{credit.toFixed(2)}</span></p>
+             <p className="font-semibold">Nerworth: <span className= {networth > 0 ? "text-green-600" : "text-red-500"}>₹{networth.toFixed(2)}</span></p>
+          </div>
+          <button
+            className="mt-4 px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700"
+            onClick={handleIncomeClick}
+          >
+            See Full Transactions
+          </button>
         </div>
       </Container>
 

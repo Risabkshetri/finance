@@ -23,7 +23,7 @@ const navItems = [
 
 const accountItems = [
   { name: "Profile", url: "/dashboard/profile", icon: FaUser },
-  { name: "Logout", url: "/dashboard/logout", icon: FaSignOutAlt },
+  { name: "Logout", url: "/logout", icon: FaSignOutAlt },
 ];
 
 const NavItem = ({ name, url, onClick, icon: Icon }) => (

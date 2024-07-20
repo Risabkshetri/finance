@@ -10,6 +10,8 @@ import Contact from "./contact/Contact";
 import Login from './Login'
 import Signup from './Signup'
 import Loader from './Loader'
+import LoginLayout from "./AuthLayout/LoginLayout";
+import SignupLayout from "./AuthLayout/SignupLayout";
 
 export {
     Logo,
@@ -23,5 +25,7 @@ export {
     Contact,
     Login,
     Signup,
-    Loader
+    Loader,
+    LoginLayout,    
+    SignupLayout
 }

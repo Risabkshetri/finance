@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import Button from "../Button";
-
+import { useNavigate } from "react-router-dom";
 export default function Introduction() {
+  const navigate = useNavigate();
+  const handStartClick =() => {
+  navigate('/signup')
+}
     return (
       <>
       <div className="container mx-auto px-4 py-16 text-center">
@@ -11,10 +15,10 @@ export default function Introduction() {
           Founded on the principles of innovation and support, KshetriAI leverages AI to provide customized solutions for personal growth and success.
         </p>
         <div className="space-x-4 mt-6">
-          <Button className=" font-semibold text-white hover:text-black hover:bg-blue-100 transition duration-300">
+          <Button onClick={handStartClick} className=" font-semibold text-white hover:text-black hover:bg-blue-100 transition duration-300">
             Start Now
           </Button>
-          <Button className="w-auto px-2 text-white hover:text-black border-2 font-semibold hover:bg-white hover:bg-blue-100 transition duration-300">
+          <Button className="w-auto px-2 text-white hover:text-black border-2 font-semibold hover:bg-white  transition duration-300">
             Discover More
           </Button>
         </div>
