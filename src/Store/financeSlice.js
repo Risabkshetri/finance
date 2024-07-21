@@ -43,3 +43,5 @@ const financialSlice = createSlice({
 export const { setNetworth, setDebit, setCredit, updateAllFinancialData } = financialSlice.actions;
 
 export default financialSlice.reducer;
+
+

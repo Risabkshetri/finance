@@ -2,7 +2,7 @@ import Dashboard from "./Dashboard/Dashboard";
 import CryptoCurrency from "./Finance/CryptoCurrency";
 import Chatbot from "./AI/Chatbot";
 import Profile from "./Profile/Profile";
-import Progress from "./Progress/Progress";
+import ProgressLayout from "./Progress/ProgressLayout";
 import Social from "./SocialMedia/Social";
 import Note from "./Note/Note";
 import Logout from "./Logout";
@@ -12,12 +12,13 @@ import DashboardContent from "./Dashboard/DashboardContent";
 import Container from "./Container";
 import FinanceHome from "./Finance/FinanceHome";
 
+
 export { 
     Dashboard,
     CryptoCurrency,
     Chatbot,
     Profile,
-    Progress,
+    ProgressLayout,
     Social,
     Note,
     Logout,
