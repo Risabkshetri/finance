@@ -18,7 +18,7 @@ const FinanceHub = () => {
     {
       title: 'Net Worth Chart',
       description: 'Visualize your net worth over time',
-      link: 'networth',
+      link: '/dashboard/progress',
       icon: 'fa-chart-line',
     },
   ];
