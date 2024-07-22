@@ -46,6 +46,15 @@ export class AuthService {
             return null;
         }
     }
+    async updatePassword(currentPassword, newPassword) {
+        try {
+            await this.account.updatePassword(newPassword, currentPassword);
+            return true;
+        } catch (error) {
+            console.log("AppwriteService :: updatePassword :: error", error);
+            throw error;
+        }
+    }
     
 
     async logout() {

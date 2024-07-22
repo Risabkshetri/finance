@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { FaLock, FaShieldAlt } from "react-icons/fa";
 import User from "./User";
+import PasswordManagement from "./PasswordManagement";
 
 const Profile = () => {
   const [profilePicture, setProfilePicture] = useState(null);
@@ -46,12 +47,8 @@ const Profile = () => {
     <h2 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-100">Account Settings</h2>
 
     <div className="space-y-6">
-      <div>
-        <h3 className="text-lg font-medium mb-2 text-gray-700 dark:text-gray-300">Password Management</h3>
-        <button className="btn bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 px-4 py-2 rounded flex items-center transition duration-150 ease-in-out">
-          <FaLock className="mr-2" /> Change Password
-        </button>
-      </div>
+      
+    <PasswordManagement />
 
       <div>
         <h3 className="text-lg font-medium mb-2 text-gray-700 dark:text-gray-300">

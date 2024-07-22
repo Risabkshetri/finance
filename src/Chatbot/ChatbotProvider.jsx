@@ -2,10 +2,11 @@ import React from 'react'
 import axios from 'axios'
 import conf from '../conf/Conf'
 import { useState, useRef, useEffect } from 'react';
-import { set } from 'react-hook-form';
 import { FaPaperPlane } from 'react-icons/fa'
 import ReactMarkdown from 'react-markdown'; 
 import authService from '../Appwrite/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { chatsCount } from '../Store/aiSlice';
 
 function ChatbotProvider() {
   const [question, setQuestion] = useState('');
@@ -14,7 +15,8 @@ function ChatbotProvider() {
   const [isTyping, setIsTyping] = useState(false);
   const chatContainerRef = useRef(null);
   const [name, setName] = useState('');
-
+  const dispatch = useDispatch();
+  const count = useSelector(state => state.aichats.aiChatsCount);
   async function generateAnswer(){
     setIsTyping(true);
     const response = await axios({
@@ -30,6 +32,8 @@ function ChatbotProvider() {
     typeAnswer(newAnswer);
     setChatHistory([...chatHistory, { question, answer: newAnswer }]);
     setQuestion('');
+   dispatch(chatsCount());
+   console.log("Updated count:", count + 1);
   }
 
   function typeAnswer(text) {

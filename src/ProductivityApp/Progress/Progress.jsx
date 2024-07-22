@@ -20,12 +20,12 @@ import {
 import { DateRangePicker } from "react-date-range";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
-import { chatsCount } from "../../Store/aiSlice";
 
 const Progress = ({ userId }) => {
   const dispatch = useDispatch();
   const { data, status, error } = useSelector((state) => state.progress);
   const notesCount = useSelector((state) => state.notes.length);
+  const aiChatsCount = useSelector((state) => state.aichats.aiChatsCount);
   const { networth, debit, credit } = useSelector((state) => state.finance);
   const [dateRange, setDateRange] = useState([
     {
@@ -63,7 +63,7 @@ const Progress = ({ userId }) => {
 
   useEffect(() => {
     dispatch(fetchAndUpdateProgress());
-  }, [dispatch, notesCount, networth, debit, credit]);
+  }, [dispatch, notesCount, networth, debit, credit, aiChatsCount]);
 
   const processedData = useMemo(() => {
     return data
@@ -77,7 +77,7 @@ const Progress = ({ userId }) => {
         date: item.date,
         notesCount: item.notesCount || 0,
         financialProgress: (item.credit || 0) - (item.debit || 0),
-        chatsCount: item.chatsCount || 0,
+        aiChatsCount: item.aiChatsCount || 0,
       }));
   }, [data, dateRange]);
 
@@ -113,142 +113,168 @@ const Progress = ({ userId }) => {
         gap={2}
       >
         <div className="w-full overflow-x-auto">
-        <Box 
-      sx={{
-        // Calendar wrapper
-        '.rdrCalendarWrapper': {
-          backgroundColor: 'background.paper',
-          color: 'text.primary',
-        },
-        
-        // Month dropdown
-        '.rdrMonthAndYearPickers select': {
-          color: 'text.primary',
-        },
-        '.rdrMonthAndYearPickers select option': {
-          backgroundColor: 'background.paper',
-        },
-        
-        // Navigation arrows
-        '.rdrNextPrevButton': {
-          backgroundColor: 'background.paper',
-        },
-        '.rdrPprevButton i, .rdrNextButton i': {
-          borderColor: 'text.primary',
-        },
-        
-        // Weekdays
-        '.rdrWeekDay': {
-          color: 'text.secondary',
-        },
-        
-        // Days
-        '.rdrDay': {
-          color: 'text.primary',
-          backgroundColor: 'background.paper',
-        },
-        '.rdrDayNumber span': {
-          color: 'text.primary',
-        },
-        '.rdrDayDisabled': {
-          color: 'text.disabled',
-        },
-        
-        // Selected day and range
-        '.rdrDayToday .rdrDayNumber span:after': {
-          backgroundColor: 'primary.main',
-        },
-        '.rdrSelected, .rdrInRange, .rdrStartEdge, .rdrEndEdge': {
-          backgroundColor: 'primary.main',
-          color: 'primary.contrastText',
-        },
-        '.rdrDayStartPreview, .rdrDayInPreview, .rdrDayEndPreview': {
-          borderColor: 'primary.light',
-        },
-        '.rdrDayHovered': {
-          backgroundColor: 'action.hover',
-        },
-        
-        // Date range wrapper
-        '.rdrDateRangeWrapper': {
-          backgroundColor: 'background.paper',
-        },
-        '.rdrDateDisplayWrapper': {
-          backgroundColor: 'background.default',
-        },
-        
-        // Input ranges
-        '.rdrInputRanges': {
-          borderColor: 'divider',
-        },
-        '.rdrInputRange': {
-          borderColor: 'divider',
-        },
-        '.rdrInputRangeInput': {
-          color: 'text.primary',
-          backgroundColor: 'background.paper',
-          '&:focus, &:hover': {
-            borderColor: 'primary.main',
-          },
-        },
-        
-        // Defined ranges wrapper
-        '.rdrDefinedRangesWrapper': {
-          backgroundColor: 'background.paper',
-          borderColor: 'divider',
-        },
-        
-        // Static range (Today, Yesterday, etc.)
-        '.rdrStaticRange': {
-          backgroundColor: 'background.paper',
-          borderColor: 'divider',
-        },
-        '.rdrStaticRangeLabel': {
-          color: 'text.primary',
-          '&:hover, &:focus': {
-            backgroundColor: 'action.hover',
-          },
-        },
-        '.rdrStaticRange:hover .rdrStaticRangeLabel, .rdrStaticRange:focus .rdrStaticRangeLabel': {
-          backgroundColor: 'action.selected',
-        },
-        '.rdrStaticRange.rdrStaticRangeSelected .rdrStaticRangeLabel': {
-          color: 'primary.main',
-          backgroundColor: 'action.selected',
-        },
-        
-        // Time ranges
-        '.rdrTimePickerWrapper': {
-          backgroundColor: 'background.paper',
-        },
-        '.rdrTimePicker select': {
-          color: 'text.primary',
-          backgroundColor: 'background.paper',
-        },
-      }}
-    >
-      <DateRangePicker
-        onChange={handleDateRangeChange}
-        ranges={dateRange}
-        direction={isMobile ? 'vertical' : 'horizontal'}
-      />
-    </Box>
+          <Box
+            sx={{
+              // Calendar wrapper
+              ".rdrCalendarWrapper": {
+                backgroundColor: "background.paper",
+                color: "text.primary",
+              },
+
+              // Month dropdown
+              ".rdrMonthAndYearPickers select": {
+                color: "text.primary",
+              },
+              ".rdrMonthAndYearPickers select option": {
+                backgroundColor: "background.paper",
+              },
+
+              // Navigation arrows
+              ".rdrNextPrevButton": {
+                backgroundColor: "background.paper",
+              },
+              ".rdrPprevButton i, .rdrNextButton i": {
+                borderColor: "text.primary",
+              },
+
+              // Weekdays
+              ".rdrWeekDay": {
+                color: "text.secondary",
+              },
+
+              // Days
+              ".rdrDay": {
+                color: "text.primary",
+                backgroundColor: "background.paper",
+              },
+              ".rdrDayNumber span": {
+                color: "text.primary",
+              },
+              ".rdrDayDisabled": {
+                color: "text.disabled",
+              },
+
+              // Selected day and range
+              ".rdrDayToday .rdrDayNumber span:after": {
+                backgroundColor: "primary.main",
+              },
+              ".rdrSelected, .rdrInRange, .rdrStartEdge, .rdrEndEdge": {
+                backgroundColor: "primary.main",
+                color: "primary.contrastText",
+              },
+              ".rdrDayStartPreview, .rdrDayInPreview, .rdrDayEndPreview": {
+                borderColor: "primary.light",
+              },
+              ".rdrDayHovered": {
+                backgroundColor: "action.hover",
+              },
+
+              // Date range wrapper
+              ".rdrDateRangeWrapper": {
+                backgroundColor: "background.paper",
+              },
+              ".rdrDateDisplayWrapper": {
+                backgroundColor: "background.default",
+              },
+
+              // Input ranges
+              ".rdrInputRanges": {
+                borderColor: "divider",
+              },
+              ".rdrInputRange": {
+                borderColor: "divider",
+              },
+              ".rdrInputRangeInput": {
+                color: "text.primary",
+                backgroundColor: "background.paper",
+                "&:focus, &:hover": {
+                  borderColor: "primary.main",
+                },
+              },
+
+              // Defined ranges wrapper
+              ".rdrDefinedRangesWrapper": {
+                backgroundColor: "background.paper",
+                borderColor: "divider",
+              },
+
+              // Static range (Today, Yesterday, etc.)
+              ".rdrStaticRange": {
+                backgroundColor: "background.paper",
+                borderColor: "divider",
+              },
+              ".rdrStaticRangeLabel": {
+                color: "text.primary",
+                "&:hover, &:focus": {
+                  backgroundColor: "action.hover",
+                },
+              },
+              ".rdrStaticRange:hover .rdrStaticRangeLabel, .rdrStaticRange:focus .rdrStaticRangeLabel":
+                {
+                  backgroundColor: "action.selected",
+                },
+              ".rdrStaticRange.rdrStaticRangeSelected .rdrStaticRangeLabel": {
+                color: "primary.main",
+                backgroundColor: "action.selected",
+              },
+
+              // Time ranges
+              ".rdrTimePickerWrapper": {
+                backgroundColor: "background.paper",
+              },
+              ".rdrTimePicker select": {
+                color: "text.primary",
+                backgroundColor: "background.paper",
+              },
+            }}
+          >
+            <DateRangePicker
+              onChange={handleDateRangeChange}
+              ranges={dateRange}
+              direction={isMobile ? "vertical" : "horizontal"}
+            />
+          </Box>
         </div>
         <FormControl
-          sx={{ minWidth: 120, width: isMobile ? "100%" : "auto" }}
-          size="small"
-        >
-          <InputLabel>Chart Type</InputLabel>
-          <Select
-            value={chartType}
-            onChange={handleChartTypeChange}
-            label="Chart Type"
-          >
-            <MenuItem value="line">Line</MenuItem>
-            <MenuItem value="bar">Bar</MenuItem>
-            <MenuItem value="radar">Radar</MenuItem>
-          </Select>
-        </FormControl>
+  sx={{
+    minWidth: 120,
+    width: isMobile ? "100%" : "auto",
+    backgroundColor: "grey", // This will adjust according to the theme
+    "& .MuiInputLabel-root": {
+      color: "blue", // Set the input label color to blue
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "blue", // Set the default border color to blue
+      },
+      "&:hover fieldset": {
+        borderColor: "blue", // Set the border color on hover to blue
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "blue", // Set the border color when focused to blue
+      },
+    },
+    "& .MuiSelect-icon": {
+      color: "blue", // Set the select icon color to blue
+    },
+  }}
+  size="small"
+>
+  <InputLabel>Chart Type</InputLabel>
+  <Select
+    value={chartType}
+    onChange={handleChartTypeChange}
+    label="Chart Type"
+    sx={{
+      color: "blue", // Set the select text color to blue
+    }}
+  >
+    <MenuItem value="line">Line</MenuItem>
+    <MenuItem value="bar">Bar</MenuItem>
+    <MenuItem value="radar">Radar</MenuItem>
+  </Select>
+</FormControl>
+
       </Box>
 
       <ProgressChart data={processedData} chartType={chartType} />
@@ -256,7 +282,7 @@ const Progress = ({ userId }) => {
       <Box mt={4}>
         <Typography variant="h6">Summary</Typography>
         <Typography>Total Notes: {notesCount || 0}</Typography>
-        <Typography>Total Chats: {chatsCount || 0}</Typography>
+        <Typography>Total Chats: {aiChatsCount || 0}</Typography>
         <Typography>Financial Progress: ${networth.toFixed(2)}</Typography>
       </Box>
     </Box>

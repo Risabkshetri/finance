@@ -158,7 +158,6 @@ ChartJS.register(
 );
 
 const ProgressChart = ({ data, chartType }) => {
-    console.log(data)
   const chartData = {
     labels: data.map(item => {
       const date = new Date(item.date);
@@ -175,7 +174,7 @@ const ProgressChart = ({ data, chartType }) => {
       },
       {
         label: 'AI Chats',
-        data: data.map(item => item.chatsCount),
+        data: data.map(item => item.aiChatsCount),
         borderColor: 'rgba(53, 162, 235, 1)',
         backgroundColor: 'rgba(53, 162, 235, 0.1)',
         fill: true,
