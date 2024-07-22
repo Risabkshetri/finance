@@ -1,11 +1,12 @@
 import React from 'react'
 import DashboardLayout from './DashboardLayout'
+import { ThemeProvider } from './Context/themeContext'
 
 function Dashboard() {
   return (
-    <div>
+    <ThemeProvider>
       <DashboardLayout />
-    </div>
+    </ThemeProvider>
   )
 }
 

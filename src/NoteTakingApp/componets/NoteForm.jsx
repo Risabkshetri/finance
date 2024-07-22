@@ -27,29 +27,29 @@ const NoteForm = ({ note, onSave }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-violet-300 p-4 rounded-lg shadow-lg">
-      <input
-        type="text"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="Note Title"
-        className="w-full p-2 mb-4 border rounded"
-        required
-      />
-      <textarea
-        value={content}
-        onChange={(e) => setContent(e.target.value)}
-        placeholder="Note Content"
-        className="w-full p-2 mb-4 border rounded h-32"
-        required
-      />
-      <button 
-        type="submit" 
-        className="hover:bg-green-500 bg-purple-800 text-white px-4 py-2 rounded"
-      >
-        {note ? 'Update Note' : 'Add Note'}
-      </button>
-    </form>
+    <form onSubmit={handleSubmit} className="bg-violet-300 dark:bg-violet-700 p-4 rounded-lg shadow-lg">
+    <input
+      type="text"
+      value={title}
+      onChange={(e) => setTitle(e.target.value)}
+      placeholder="Note Title"
+      className="w-full p-2 mb-4 border rounded bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-violet-500 dark:focus:ring-violet-400 focus:border-transparent"
+      required
+    />
+    <textarea
+      value={content}
+      onChange={(e) => setContent(e.target.value)}
+      placeholder="Note Content"
+      className="w-full p-2 mb-4 border rounded h-32 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-violet-500 dark:focus:ring-violet-400 focus:border-transparent"
+      required
+    />
+    <button 
+      type="submit" 
+      className="hover:bg-green-500 dark:hover:bg-green-600 bg-purple-800 dark:bg-purple-900 text-white px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-green-500 dark:focus:ring-green-400 transition duration-150 ease-in-out"
+    >
+      {note ? 'Update Note' : 'Add Note'}
+    </button>
+  </form>
   );
 };
 

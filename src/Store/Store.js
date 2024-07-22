@@ -4,6 +4,7 @@ import noteSlice from './noteSlice';
 import financialSlice from './financeSlice';
 import progressSlice from './progressSlice';
 import aiSlice from './aiSlice';
+import searchSlice from './searchSlice';
 
 const store = configureStore({
     reducer: {
@@ -11,7 +12,8 @@ const store = configureStore({
         notes: noteSlice,
         finance: financialSlice,
          progress: progressSlice,
-         aichats: aiSlice
+         aichats: aiSlice,
+         search: searchSlice
     }
 });
 

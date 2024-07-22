@@ -34,36 +34,36 @@ const Profile = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8">Profile</h1>
+  <h1 className="text-3xl font-bold mb-8 text-gray-800 dark:text-gray-100">Profile</h1>
 
-      <User
-        profilePicture={profilePicture}
-        handleFileChange={handleFileChange}
-        handleRemoveProfilePicture={handleRemoveProfilePicture}
-      />
+  <User
+    profilePicture={profilePicture}
+    handleFileChange={handleFileChange}
+    handleRemoveProfilePicture={handleRemoveProfilePicture}
+  />
 
-      <div className="bg-white shadow-md rounded-lg p-6">
-        <h2 className="text-2xl font-semibold mb-6">Account Settings</h2>
+  <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6">
+    <h2 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-100">Account Settings</h2>
 
-        <div className="space-y-6">
-          <div>
-            <h3 className="text-lg font-medium mb-2">Password Management</h3>
-            <button className="btn bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded flex items-center">
-              <FaLock className="mr-2" /> Change Password
-            </button>
-          </div>
+    <div className="space-y-6">
+      <div>
+        <h3 className="text-lg font-medium mb-2 text-gray-700 dark:text-gray-300">Password Management</h3>
+        <button className="btn bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 px-4 py-2 rounded flex items-center transition duration-150 ease-in-out">
+          <FaLock className="mr-2" /> Change Password
+        </button>
+      </div>
 
-          <div>
-            <h3 className="text-lg font-medium mb-2">
-              Two-Factor Authentication
-            </h3>
-            <button className="btn bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded flex items-center">
-              <FaShieldAlt className="mr-2" /> Set Up 2FA
-            </button>
-          </div>
-        </div>
+      <div>
+        <h3 className="text-lg font-medium mb-2 text-gray-700 dark:text-gray-300">
+          Two-Factor Authentication
+        </h3>
+        <button className="btn bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 px-4 py-2 rounded flex items-center transition duration-150 ease-in-out">
+          <FaShieldAlt className="mr-2" /> Set Up 2FA
+        </button>
       </div>
     </div>
+  </div>
+</div>
   );
 };
 

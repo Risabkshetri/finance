@@ -31,8 +31,10 @@ const NavItem = ({ name, url, onClick, icon: Icon }) => (
     to={url}
     onClick={onClick}
     className={({ isActive }) =>
-      `flex items-center px-4 py-2 text-gray-700 ${
-        isActive ? "bg-indigo-100 text-indigo-600" : "hover:bg-gray-100"
+      `flex items-center px-4 py-2 transition-colors duration-200 ${
+        isActive 
+          ? "bg-indigo-100 text-indigo-600 dark:bg-indigo-900 dark:text-indigo-200" 
+          : "text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
       }`
     }
   >

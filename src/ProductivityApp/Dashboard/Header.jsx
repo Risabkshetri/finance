@@ -1,7 +1,10 @@
 // Header.jsx
-import { FaBars, FaSearch, FaCog, FaBell } from "react-icons/fa";
+import { FaBars, FaSearch, FaSun, FaMoon, FaBell } from "react-icons/fa";
+import { useTheme } from "./Context/themeContext";
 
-const Header = ({ toggleSidebar, className = '' }) => {
+const Header = ({ toggleSidebar, className = "" }) => {
+  const { isDarkMode, toggleTheme } = useTheme();
+
   return (
     <header className={`bg-white shadow-md shadow-slate-300 ${className}`}>
       <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex justify-between items-center shadow-inner">
@@ -12,7 +15,7 @@ const Header = ({ toggleSidebar, className = '' }) => {
           >
             <FaBars size={24} />
           </button>
-          <h2 className="ml-4 text-xl font-semibold text-gray-900">
+          <h2 className="ml-4 text-xl font-semibold text-gray-800 dark:text-gray-100">
             Dashboard
           </h2>
         </div>
@@ -25,8 +28,12 @@ const Header = ({ toggleSidebar, className = '' }) => {
             />
             <FaSearch className="absolute left-3 top-3 text-gray-400" />
           </div>
-          <button className="ml-4 p-2 text-gray-400 hover:text-gray-500">
-            <FaCog />
+          <button
+            onClick={toggleTheme}
+            className="p-2 mx-2 rounded-full bg-gray-200 dark:bg-gray-600 text-black dark:text-white"
+            aria-label="Toggle theme"
+          >
+            {isDarkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
           </button>
           <button className="ml-4 p-2 text-gray-400 hover:text-gray-500">
             <FaBell />

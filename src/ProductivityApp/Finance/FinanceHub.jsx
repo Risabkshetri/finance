@@ -25,23 +25,24 @@ const FinanceHub = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8">Financial Hub</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {sections.map((section, index) => (
-          <Link
-            key={index}
-            to={section.link}
-            className="bg-slate-300 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
-          >
-            <div className="flex items-center mb-4">
-              <i className={`fas ${section.icon} text-2xl text-blue-500 mr-4`}></i>
-              <h2 className="text-xl font-semibold">{section.title}</h2>
-            </div>
-            <p className="text-gray-600">{section.description}</p>
-          </Link>
-        ))}
-      </div>
+    <h1 className="text-3xl font-bold mb-8 dark:text-white">Financial Hub</h1>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {sections.map((section, index) => (
+        <Link
+          key={index}
+          to={section.link}
+          className="bg-slate-300 dark:bg-slate-700 text-slate-950 dark:text-slate-200 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
+        >
+          <div className="flex items-center mb-4">
+            <i className={`fas ${section.icon} text-2xl text-blue-500 mr-4`}></i>
+            <h2 className="text-xl font-semibold dark:text-white">{section.title}</h2>
+          </div>
+          <p className="text-gray-600 dark:text-gray-400">{section.description}</p>
+        </Link>
+      ))}
     </div>
+  </div>
+  
   );
 };
 
