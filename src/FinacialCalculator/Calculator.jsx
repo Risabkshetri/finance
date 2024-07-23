@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import data from "./data";
 import { useDispatch } from "react-redux";
 import { updateAllFinancialData } from "../Store/financeSlice";
+import DownloadReferenceButton from "./ReferenceFile";
 
 function Calculator() {
   const dispatch = useDispatch();
@@ -171,6 +172,9 @@ function Calculator() {
             ₹{totals.netWorth.toFixed(2)}
           </span>
         </p>
+      </div>
+      <div className="mb-6">
+       <DownloadReferenceButton transactions={transactions} />
       </div>
     </div>
   );

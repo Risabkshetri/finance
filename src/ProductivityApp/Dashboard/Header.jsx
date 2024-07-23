@@ -20,14 +20,6 @@ const Header = ({ toggleSidebar, className = "" }) => {
           </h2>
         </div>
         <div className="flex items-center">
-          <div className="relative hidden sm:block">
-            <input
-              type="text"
-              placeholder="Search..."
-              className="w-64 pl-10 pr-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            />
-            <FaSearch className="absolute left-3 top-3 text-gray-400" />
-          </div>
           <button
             onClick={toggleTheme}
             className="p-2 mx-2 rounded-full bg-gray-200 dark:bg-gray-600 text-black dark:text-white"

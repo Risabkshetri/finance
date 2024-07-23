@@ -13,7 +13,7 @@ function ProgressLayout() {
   return (
     <ThemeProvider theme={darkTheme}>
     <CssBaseline />
-    <Progress userId={'1'}  />
+    <Progress userId={Math.random()}  />
   </ThemeProvider>
   )
 }
