@@ -12,6 +12,8 @@ import Signup from './Signup'
 import Loader from './Loader'
 import LoginLayout from "./AuthLayout/LoginLayout";
 import SignupLayout from "./AuthLayout/SignupLayout";
+import PrivacyPolicy from "./Footer/footerComponents/PrivacyPolicy";
+import TermsAndConditions from "./Footer/footerComponents/TermsAndconditions";
 
 export {
     Logo,
@@ -27,5 +29,7 @@ export {
     Signup,
     Loader,
     LoginLayout,    
-    SignupLayout
+    SignupLayout,
+    PrivacyPolicy,
+    TermsAndConditions
 }

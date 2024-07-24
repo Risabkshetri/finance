@@ -3,9 +3,12 @@ import Button from "../Button";
 import { useNavigate } from "react-router-dom";
 export default function Introduction() {
   const navigate = useNavigate();
-  const handStartClick =() => {
-  navigate('/signup')
-}
+      const handStartClick =() => {
+      navigate('/signup')
+    }
+      const handDiscoverClick =() => {
+      navigate('/about')
+    }
     return (
       <>
       <div className="container mx-auto px-4 py-16 text-center">
@@ -18,7 +21,7 @@ export default function Introduction() {
           <Button onClick={handStartClick} className=" font-semibold text-white hover:text-black hover:bg-blue-100 transition duration-300">
             Start Now
           </Button>
-          <Button className="w-auto px-2 text-white hover:text-black border-2 font-semibold hover:bg-white  transition duration-300">
+          <Button onClick={handDiscoverClick} className="w-auto px-2 text-white hover:text-black border-2 font-semibold hover:bg-white  transition duration-300">
             Discover More
           </Button>
         </div>

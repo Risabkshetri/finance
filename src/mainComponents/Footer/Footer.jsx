@@ -16,12 +16,11 @@ function Footer({className = ''}) {
                 &copy; Copyright 2023. All Rights Reserved by KshetriAI.
               </p>
             </div>
-          </div>
-          
+          </div>      
           {[
-            { title: 'Company', items: ['Features', 'Pricing', 'Affiliate Program'] },
-            { title: 'Support', items: ['Account', 'Help', 'Contact Us'] },
-            { title: 'Legals', items: ['Terms & Conditions', 'Privacy Policy', 'Licensing'] }
+            { title: 'Company', items: [{label: 'About Us', link: '/about'}, {label: 'Blog', link: '/blog'}, {label: 'productivity App', link: '/signup'}] },
+            { title: 'Support', items: [{label: 'Help Center', link: '/contact'}, {label: 'Contact Us', link: '/contact'}] },
+            { title: 'Legals', items: [{label: 'Terms & conditions', link: '/terms-and-conditions'}, {label: 'Privacy', link: '/privacy-policy'}] }
           ].map((section, index) => (
             <div key={index} className="col-span-1">
               <h3 className="text-xs font-semibold uppercase text-gray-500 tracking-wider mb-4">
@@ -30,12 +29,13 @@ function Footer({className = ''}) {
               <ul className="space-y-2">
                 {section.items.map((item, itemIndex) => (
                   <li key={itemIndex}>
-                    <Link
-                      to="/"
+                      <Link
+                      to={item.link}
                       className="text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors duration-300"
                     >
-                      {item}
+                      {item.label || item}
                     </Link>
+                    
                   </li>
                 ))}
               </ul>

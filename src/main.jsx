@@ -8,7 +8,7 @@ import App from './App.jsx'
 import './index.css'
 
 // Import components
-import { HomePage, AboutUs, Blog, Contact, LoginLayout, SignupLayout } from './mainComponents/index.js'
+import { HomePage, AboutUs, Blog, Contact, LoginLayout, SignupLayout, PrivacyPolicy, TermsAndConditions } from './mainComponents/index.js'
 import { Dashboard,CryptoCurrency,Chatbot,Profile,Social,Note,FinancialCalculation, FinanceHome, FinanceHub, DashboardContent, Logout, ProgressLayout } from './ProductivityApp/index.js'
 
 const router = createBrowserRouter([
@@ -43,6 +43,14 @@ const router = createBrowserRouter([
       {
         path: "logout",
         element: <Logout />
+      },
+      {
+        path: 'privacy-policy',
+        element: <PrivacyPolicy />
+      },
+      {
+        path: 'terms-and-conditions',
+        element: <TermsAndConditions />
       },
       {
         path: "dashboard",
