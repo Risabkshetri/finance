@@ -1,4 +1,4 @@
-# StudySync Pro
+# Productivity App
 
 A comprehensive study and personal development platform built with React, combining note-taking, crypto tracking, and AI-powered features to enhance your learning journey.
 
