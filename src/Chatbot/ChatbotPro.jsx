@@ -1,10 +1,10 @@
 // components/Chatbot.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useChatbot } from './ChatbotProvider';
 
 const ChatbotPro = () => {
   const [input, setInput] = useState('');
-  const { messages, sendMessage, isLoading, error, getConversationHistory, 
+  const { messages, sendMessage, isLoading, error, getConversationHistory } = useChatbot();
 
   useEffect(() => {
     getConversationHistory();

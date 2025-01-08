@@ -1,4 +1,3 @@
-import React from 'react'
 import axios from 'axios'
 import conf from '../conf/Conf'
 import { useState, useRef, useEffect } from 'react';
