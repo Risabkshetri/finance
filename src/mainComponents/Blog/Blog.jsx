@@ -1,4 +1,3 @@
-import React from 'react'
 import BlogCard from './BlogCard'
 import { Navbar, Footer } from '../index'
 import Blog1 from '../../assets/Blog1.png'
